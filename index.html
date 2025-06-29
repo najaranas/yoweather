@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="icon" href="/photos/logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <title>YoWeather</title>
+    </head>
+    <body class="dark-theme">
+        <div class="main-content" style="display: none">
+            <header>
+                <div class="container">
+                    <div class="title">
+                        <img src="/photos/logo.png" alt="logo" width="50px" height="50px" />
+                        <h1>YoWeather</h1>
+                    </div>
+                    <div class="search-theme-location">
+                        <div class="search">
+                            <div class="input-box">
+                                <span class="search-icon material-symbols-outlined"> search </span>
+                                <span class="arrow-back-icon material-symbols-outlined"> arrow_back </span>
+                                <input type="text" placeholder="Search city ..." />
+                                <span class="reload-circle material-symbols-outlined not-started">
+                                    progress_activity
+                                </span>
+                            </div>
+                            <div class="suggestion"></div>
+                        </div>
+                        <div class="theme-location">
+                            <!-- <span class="material-symbols-outlined"> contrast </span> -->
+                            <div class="location">
+                                <span class="material-symbols-outlined"> my_location </span>
+                                <span class="text">Current location</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="main">
+                <div class="container">
+                    <div class="left">
+                        <div class="today-temp">
+                            <div class="time">
+                                <span>Now</span>
+                                <span class="local-time">15:00</span>
+                            </div>
+                            <div class="temp-data">
+                                <div class="temp">
+                                    <span class="data">19°</span>
+                                    <span class="weather-icon material-symbols-outlined"> sunny </span>
+                                </div>
+                                <span class="sky-status">Clear Sky</span>
+                            </div>
+                            <hr />
+                            <div class="date-location">
+                                <div class="date">
+                                    <span class="material-symbols-outlined"> calendar_today </span>
+                                    <span class="text">Thursday 2, Mar</span>
+                                </div>
+                                <div class="location">
+                                    <span class="material-symbols-outlined"> location_on </span>
+                                    <span class="text">Chandpur,BD</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>5 Days Forecast</h3>
+                        <div class="days-forecast">
+                            <div class="box">
+                                <div class="temp">
+                                    <span class="weather-icon material-symbols-outlined"> ac_unit </span>
+                                    <span class="temp-data">19°</span>
+                                </div>
+                                <div class="day-data">
+                                    <span class="month">2 Mar</span>
+                                    <span class="day">Thuesday</span>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="temp">
+                                    <span class="weather-icon material-symbols-outlined"> sunny </span>
+                                    <span class="temp-data">19°</span>
+                                </div>
+                                <div class="day-data">
+                                    <span class="month">2 Mar</span>
+                                    <span class="day">Thuesday</span>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="temp">
+                                    <span class="weather-icon material-symbols-outlined"> sunny </span>
+                                    <span class="temp-data">19°</span>
+                                </div>
+                                <div class="day-data">
+                                    <span class="month">2 Mar</span>
+                                    <span class="day">Thuesday</span>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="temp">
+                                    <span class="weather-icon material-symbols-outlined"> sunny </span>
+                                    <span class="temp-data">19°</span>
+                                </div>
+                                <div class="day-data">
+                                    <span class="month">2 Mar</span>
+                                    <span class="day">Thuesday</span>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="temp">
+                                    <span class="weather-icon material-symbols-outlined"> sunny </span>
+                                    <span class="temp-data">19°</span>
+                                </div>
+                                <div class="day-data">
+                                    <span class="month">2 Mar</span>
+                                    <span class="day">Thuesday</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="highlights">
+                            <h3>Todays Highlights</h3>
+                            <div class="content">
+                                <div class="box air-quality">
+                                    <div class="little-box">
+                                        <h4>Air Quality</h4>
+                                        <span class="air-quality-status">Very Poor</span>
+                                    </div>
+                                    <div class="box-content">
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="data-box">
+                                            <div class="pm25 data">
+                                                <span class="name">PM25</span>
+                                                <span class="value">270</span>
+                                            </div>
+                                            <div class="SO2 data">
+                                                <span class="name">SO2</span>
+                                                <span class="value">4.23</span>
+                                            </div>
+                                            <div class="NO2 data">
+                                                <span class="name">NO2</span>
+                                                <span class="value">27.0</span>
+                                            </div>
+                                            <div class="O3 data">
+                                                <span class="name">O3</span>
+                                                <span class="value">23.8</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box sunrise-sunset">
+                                    <h4>Sunrise & Sunset</h4>
+                                    <div class="miniboxes">
+                                        <div class="box-content">
+                                            <span class="material-symbols-outlined"> sunny </span>
+                                            <div class="sunrise data">
+                                                <span class="name">Sunrise</span>
+                                                <span class="value">6:14 Am</span>
+                                            </div>
+                                        </div>
+                                        <div class="box-content">
+                                            <span class="material-symbols-outlined"> nightlight </span>
+                                            <div class="sunset data">
+                                                <span class="name">Sunset</span>
+                                                <span class="value">6:14 Pm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box humadity">
+                                    <h4>Humadity</h4>
+                                    <div class="box-content">
+                                        <span class="material-symbols-outlined"> humidity_percentage </span>
+                                        <span class="value">23%</span>
+                                    </div>
+                                </div>
+                                <div class="box pressure">
+                                    <h4>Pressure</h4>
+                                    <div class="box-content">
+                                        <span class="material-symbols-outlined"> waves </span>
+                                        <span class="value">1015hPa</span>
+                                    </div>
+                                </div>
+                                <div class="box visibility">
+                                    <h4>Visibility</h4>
+                                    <div class="box-content">
+                                        <span class="material-symbols-outlined"> visibility </span>
+                                        <span class="value">10km</span>
+                                    </div>
+                                </div>
+                                <div class="box feelslike">
+                                    <h4>Feels Like</h4>
+                                    <div class="box-content">
+                                        <span class="material-symbols-outlined"> thermostat </span>
+                                        <span class="value">18°c</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="today-times">
+                            <h3>Today at</h3>
+                            <div class="content">
+                                <div class="big-box weather-temp">
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                    <div class="box" title="clear Sky">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> air </span>
+                                        <div class="temp">20°</div>
+                                    </div>
+                                </div>
+                                <div class="big-box wind-speed">
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">600 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="time">2AM</div>
+                                        <span class="weather-icon material-symbols-outlined"> near_me </span>
+                                        <div class="speed">6 km/h</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <footer>
+                            <div class="content">&copy;2024 Najar All rights reserved</div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loadOverLay">
+            <span class="reload-circle material-symbols-outlined started">progress_activity</span>
+        </div>
+        <script src="script.js"></script>
+        <img src="" alt="" />
+    </body>
+</html>

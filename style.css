@@ -1,0 +1,590 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.dark-theme {
+    --bgColor: #141216;
+    --boxbg: #222124;
+    --textColor: #fff;
+    --secondColor: #8c68e1;
+    --thirdColor: #898989;
+    --fourthColor: #1f1e1e;
+}
+body.light-theme {
+    --bgColor: #fff;
+    --textColor: #141216;
+}
+body {
+    background-color: var(--bgColor);
+    color: var(--textColor);
+    font-family: "Ubuntu", sans-serif;
+}
+/* container */
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 30px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 30px 50px;
+    }
+}
+@media (max-width: 699px) {
+    .container {
+        padding: 30px 10px;
+    }
+}
+
+/* container */
+
+/* header */
+
+header .material-symbols-outlined {
+    font-size: 25px !important;
+    cursor: pointer;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: var(--bgColor);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.273), 0 6px 10px 0 rgba(0, 0, 0, 0.17);
+}
+
+header .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .search-theme-location {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+header .container .title,
+.theme-location,
+.search,
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .location {
+    background-color: #8c68e1;
+    padding: 15px 20px;
+    border-radius: 30px;
+    color: #141216;
+    font-size: 20px;
+    font-weight: 300;
+    font-weight: 400;
+    margin-left: 5px;
+    cursor: pointer;
+}
+header .location.clicked {
+    background-color: #373538;
+    color: #bebbc0;
+    pointer-events: none;
+    cursor: auto;
+}
+header .location.clicked * {
+    opacity: 1;
+}
+header .search {
+    padding: 15px 20px;
+    border-radius: 30px;
+    background-color: var(--fourthColor);
+    width: 60%;
+    position: relative;
+    border-radius: 30px;
+}
+header .search .input-box {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+header .search input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #fff;
+    width: 100%;
+}
+header .search input::placeholder {
+    opacity: 0.5;
+}
+header .search.focused {
+    border-radius: 30px 30px 0 0;
+}
+
+.reload-circle.not-started {
+    display: none;
+}
+.reload-circle.started {
+    display: block;
+    animation: cirlceAnimation linear 0.7s infinite;
+}
+@keyframes cirlceAnimation {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+/* suggestion */
+
+.suggestion {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    border-top: 2px solid#555;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 0 0 30px 30px;
+    background-color: var(--fourthColor);
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.273), 10px 10px 10px 10px rgba(0, 0, 0, 0.17);
+}
+.suggestion .box {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.suggestion .box span,
+.adresse {
+    color: var(--thirdColor);
+}
+
+header .search .arrow-back-icon {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    header .search-theme-location {
+        justify-content: end;
+    }
+    header .search {
+        width: fit-content;
+        margin-right: 10px;
+    }
+    header .search input.open {
+        display: block;
+    }
+    header .search input {
+        display: none;
+    }
+
+    .search.clicked {
+        position: absolute;
+        animation: searchAnimation 0.3s linear forwards;
+        padding: 30px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @keyframes searchAnimation {
+        from {
+            position: relative;
+            border-radius: 50%;
+        }
+        to {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    .search.clicked .search-icon {
+        display: none;
+    }
+    .search.focused .suggestion {
+        position: static;
+        transform: translateY(0);
+        display: block;
+        width: 100%;
+        box-shadow: none;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 799px) {
+    header .search-theme-location {
+        justify-content: end;
+    }
+    header .search {
+        width: fit-content;
+        margin-right: 10px;
+    }
+    header .location .text {
+        display: none;
+    }
+    header .title {
+        font-size: 13px;
+    }
+}
+@media (max-width: 420px) {
+    header * {
+        font-size: 20px;
+    }
+}
+/* header */
+
+/* main */
+
+.main {
+    position: relative;
+    left: 0;
+    top: 115px;
+    height: 1000px;
+}
+.main .container {
+    display: grid;
+    grid-template-columns: 300px auto;
+    gap: 20px;
+}
+.main .left .material-symbols-outlined {
+    color: var(--secondColor);
+}
+.main .left,
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.main .left .today-temp,
+.days-forecast,
+.right {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--boxbg);
+    padding: 30px 15px;
+    border-radius: 30px;
+    gap: 10px;
+}
+/* today-temp */
+
+.main .left .today-temp .time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 500;
+}
+.main .left .today-temp .temp-data .temp,
+.main .left .today-temp .date-location > * {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.main .left .today-temp .temp-data .temp * {
+    font-size: 56px;
+    margin-right: 15px;
+    font-weight: 500;
+}
+.today-temp .temp-data .sky-status {
+    text-transform: capitalize;
+    color: var(--thirdColor);
+}
+hr {
+    background-color: var(--thirdColor);
+    height: 0.5px;
+    border: 0;
+}
+.main .left .today-temp .date-location {
+    margin-top: 10px;
+}
+.main .left .today-temp .date-location .text {
+    color: var(--thirdColor);
+}
+
+/* today-temp */
+
+/* days-forecast */
+
+.main .left .days-forecast .box {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.main .left .days-forecast .box .temp {
+    display: flex;
+    align-items: center;
+}
+.main .left .days-forecast .box .temp * {
+    font-size: 30px;
+    margin-right: 10px;
+    text-align: center;
+}
+.main .left .days-forecast .box .temp .temp-data {
+    min-width: 42px;
+    display: inline-block;
+}
+.main .left .days-forecast .box .month,
+.day {
+    color: var(--thirdColor);
+}
+.main .left .days-forecast .box .day-data {
+    display: flex;
+    margin-left: 13px;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* days-forecast */
+
+/* left  section */
+
+/* right section */
+
+/* scorll bar */
+
+/* highlights */
+
+.main .right h3 {
+    margin-bottom: 30px;
+    letter-spacing: 0.6px;
+}
+
+.air-quality {
+    grid-area: air-quality;
+}
+.sunrise-sunset {
+    grid-area: sunrise-sunset;
+}
+.humadity {
+    grid-area: humadity;
+}
+.pressure {
+    grid-area: pressure;
+}
+.visibility {
+    grid-area: visibility;
+}
+.feelslike {
+    grid-area: feelslike;
+}
+
+.main .right .highlights .content {
+    display: grid;
+    grid-template-areas:
+        "air-quality air-quality sunrise-sunset sunrise-sunset "
+        "humadity pressure visibility feelslike ";
+    gap: 30px;
+}
+.main .right .highlights .content .box {
+    padding: 30px;
+    background-color: var(--fourthColor);
+    border-radius: 30px;
+}
+.main .right .highlights .content .box h4 {
+    color: var(--thirdColor);
+    font-weight: 400;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+.main .right .highlights .content .air-quality .little-box {
+    display: flex;
+    justify-content: space-between;
+}
+.main .right .highlights .content .air-quality .little-box .air-quality-status {
+    background-color: #dc1658;
+    border-radius: 30px;
+    padding: 5px 10px;
+    color: #141216;
+    height: fit-content;
+}
+
+.miniboxes,
+.box-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.air-quality .box-content {
+    flex-wrap: nowrap;
+}
+.data-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+.box-content span {
+    display: block;
+}
+.box-content .data,
+.box {
+    text-align: start;
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+.box-content .material-symbols-outlined {
+    font-size: 45px;
+}
+.box-content .name {
+    color: var(--thirdColor);
+}
+.box-content .value {
+    font-size: 25px;
+    min-width: 60px;
+}
+.box-content .material-symbols-outlined {
+    margin-right: 20px;
+}
+
+/* highlights */
+
+/* Todays highlights */
+
+.main .right h3 {
+    margin-top: 10px;
+}
+
+.main .right .today-times .content .big-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.main .right .today-times .content {
+    white-space: nowrap;
+    overflow: auto;
+    width: calc(100vw - 450px);
+}
+/* scorll bar edit */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.main .right .today-times .content::-webkit-scrollbar {
+    height: 5px;
+}
+
+.main .right .today-times .content::-webkit-scrollbar-track {
+    background: transparent; /* color of the track */
+}
+
+.main .right .today-times .content::-webkit-scrollbar-thumb {
+    background: #888; /* color of the scrollbar */
+
+    border-radius: 6px; /* roundness of the scrollbar thumb */
+}
+
+.main .right .today-times .content::-webkit-scrollbar-thumb:hover {
+    background: #555; /* color of the scrollbar thumb on hover */
+}
+/* scorll bar edit */
+
+.main .right .today-times .content .big-box .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--fourthColor);
+    border-radius: 25px;
+    flex-grow: 1;
+    min-width: 150px;
+}
+.main .right .today-times .content .weather-temp .box .material-symbols-outlined {
+    font-size: 70px;
+    color: var(--secondColor);
+}
+.main .right .today-times .content .wind-speed .box .material-symbols-outlined {
+    font-size: 70px;
+    color: #1f74a8;
+}
+
+/* Todays highlights */
+
+/* right section */
+
+@media (max-width: 1420px) {
+    .main .right .highlights .content {
+        grid-template-areas:
+            "air-quality air-quality air-quality air-quality"
+            "sunrise-sunset sunrise-sunset sunrise-sunset sunrise-sunset"
+            "humadity humadity pressure pressure"
+            "visibility visibility feelslike feelslike";
+    }
+    .miniboxes {
+        justify-content: start;
+        gap: 100px;
+    }
+    .air-quality .box-content {
+        justify-content: start;
+    }
+}
+@media (max-width: 999px) {
+    .main .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .main .right .today-times .content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 699px) {
+    .main .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .main .right .highlights .content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .miniboxes,
+    .air-quality .box-content {
+        gap: 20px;
+    }
+}
+
+/* main */
+
+/* footer */
+
+footer .content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-transform: capitalize;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* footer */
+
+/* loadOverLay */
+
+.loadOverLay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--fourthColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
