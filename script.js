@@ -16,6 +16,9 @@ window.addEventListener("load", () => {
         document.querySelector(".loadOverLay").style.display = "none";
         document.querySelector(".main-content").style.display = "block";
 
+        // Load Tunis, Tunisia weather data by default
+        loadTunisWeatherData();
+
         // Add event listeners
         searchInput.addEventListener("input", handleInputEvents);
         searchInput.addEventListener("focus", handleInputEvents);
@@ -53,7 +56,7 @@ window.addEventListener("load", () => {
     }, 2000);
 });
 
-let i = 0;
+let locationPermissionDenialCount = 0;
 function showLocationPermission() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -61,8 +64,8 @@ function showLocationPermission() {
                 locationBtn.classList.add("clicked");
             },
             (error) => {
-                i++;
-                localStorage.setItem("counter", i);
+                locationPermissionDenialCount++;
+                localStorage.setItem("counter", locationPermissionDenialCount);
                 locationBtn.classList.remove("clicked");
                 if (localStorage.getItem("counter") && +localStorage.getItem("counter") > 2) {
                     localStorage.setItem("counter", "2");
@@ -478,5 +481,35 @@ function getCurrentLocationData() {
                 console.error(error);
             }
         });
+    }
+}
+
+// Load Tunis, Tunisia weather data by default
+async function loadTunisWeatherData() {
+    try {
+        // Tunis, Tunisia coordinates
+        const lat = 36.8065;
+        const lon = 10.1815;
+        const country = "TN";
+        const name = "Tunis";
+        const state = "Tunis";
+
+        // add overlay
+        document.querySelector(".loadOverLay").style.display = "flex";
+        document.querySelector(".main-content").style.display = "none";
+
+        // get weather data
+        currentWeather(lat, lon, country, name, state);
+
+        // get 5 days forecast data
+        fiveDaysForecast(lat, lon);
+
+        // get airpollution data
+        airPollution(lat, lon);
+
+        // enable current location
+        locationBtn.classList.remove("clicked");
+    } catch (error) {
+        console.error("Error loading Tunis weather data:", error);
     }
 }
