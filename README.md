@@ -69,7 +69,7 @@ A beautiful, responsive weather application that provides real-time weather info
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/yoweather.git
+   git clone https://github.com/najaranas/yoweather.git
    cd yoweather
    ```
 
